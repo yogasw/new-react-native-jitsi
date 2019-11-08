@@ -1,6 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import JitsiMeet, { JitsiMeetView } from 'react-native-jitsi-meet';
+import {View,Text} from 'react-native';
+import JitsiMeet, {JitsiMeetView} from 'react-native-jitsi-meet';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class App extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      const url = "https://meet.jit.si/yoga"
+      const url = 'https://meet.jit.si/yoga';
       JitsiMeet.call(url);
       /* You can also use JitsiMeet.audioCall(url) for audio only call */
       /* You can programmatically end the call with JitsiMeet.endCall() */
@@ -33,9 +33,14 @@ class App extends React.Component {
 
   render() {
     return (
-        <View style={{ backgroundColor: 'black' }}>
-          <JitsiMeetView onConferenceTerminated={this.onConferenceTerminated} onConferenceJoined={this.onConferenceJoined} onConferenceWillJoin={this.onConferenceWillJoin} style={{ flex: 1, height: '100%', width: '100%' }} />
-        </View>
+      <View style={{backgroundColor: 'black', flex: 1}}>
+
+        <JitsiMeetView
+          onConferenceTerminated={this.onConferenceTerminated}
+          onConferenceJoined={this.onConferenceJoined}
+          onConferenceWillJoin={this.onConferenceWillJoin}
+          style={{flex: 1, height: '100%', width: '100%'}}/>
+      </View>
     );
   }
 }
